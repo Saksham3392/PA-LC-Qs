@@ -1,0 +1,19 @@
+class RunningAverage {
+    private double sum;
+    private long count;
+
+    public double add(double value) {
+        if (count == Long.MAX_VALUE) throw new IllegalStateException();
+        sum += value;
+        count++;
+        return average();
+    }
+
+    public double average() {
+        return count == 0 ? 0.0 : (double) sum / count;
+    }
+
+    public long count() {
+        return count;
+    }
+}

@@ -1,0 +1,14 @@
+import java.util.*;
+
+class Solution {
+    public boolean isPalindrome(String text) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (char ch : text.toCharArray()) {
+            if (Character.isLetterOrDigit(ch)) deque.addLast(Character.toLowerCase(ch));
+        }
+        while (deque.size() > 1) {
+            if (!deque.removeFirst().equals(deque.removeLast())) return false;
+        }
+        return true;
+    }
+}

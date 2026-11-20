@@ -1,0 +1,42 @@
+import java.util.*;
+
+class LinkedListStack {
+    private static class Node {
+        int value;
+        Node next;
+
+        Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
+    private Node top;
+    private int size;
+
+    public void push(int value) {
+        top = new Node(value, top);
+        size++;
+    }
+
+    public int pop() {
+        if (top == null) throw new NoSuchElementException("Stack is empty");
+        int value = top.value;
+        top = top.next;
+        size--;
+        return value;
+    }
+
+    public int peek() {
+        if (top == null) throw new NoSuchElementException("Stack is empty");
+        return top.value;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public int size() {
+        return size;
+    }
+}

@@ -1,0 +1,11 @@
+import java.util.*;
+
+class RecentCounter {
+    private final Queue<Integer> requests = new ArrayDeque<>();
+
+    public int ping(int t) {
+        requests.offer(t);
+        while (requests.peek() < t - 3000) requests.poll();
+        return requests.size();
+    }
+}

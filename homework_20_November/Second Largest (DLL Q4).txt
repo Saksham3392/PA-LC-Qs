@@ -1,0 +1,26 @@
+class Solution {
+    static class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Integer secondLargest(Node head) {
+        Integer largest = null;
+        Integer second = null;
+        for (Node current = head; current != null; current = current.next) {
+            int value = current.data;
+            if (largest == null || value > largest) {
+                if (largest == null || value != largest) second = largest;
+                largest = value;
+            } else if (value != largest && (second == null || value > second)) {
+                second = value;
+            }
+        }
+        return second;
+    }
+}

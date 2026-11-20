@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+    static class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public List<Integer> traverseForward(Node head) {
+        List<Integer> result = new ArrayList<>();
+        for (Node current = head; current != null; current = current.next) result.add(current.data);
+        return result;
+    }
+
+    public List<Integer> traverseBackward(Node head) {
+        List<Integer> result = new ArrayList<>();
+        if (head == null) return result;
+        Node tail = head;
+        while (tail.next != null) tail = tail.next;
+        for (Node current = tail; current != null; current = current.prev) result.add(current.data);
+        return result;
+    }
+}

@@ -1,0 +1,15 @@
+class Solution {
+    public int[] selectionSort(int[] nums) {
+        int[] result = nums.clone();
+        for (int i = 0; i < result.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < result.length; j++) {
+                if (result[j] < result[minIndex]) minIndex = j;
+            }
+            int temp = result[i];
+            result[i] = result[minIndex];
+            result[minIndex] = temp;
+        }
+        return result;
+    }
+}

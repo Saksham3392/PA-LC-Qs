@@ -1,0 +1,25 @@
+class Solution {
+    static class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Node deleteAllOccurrences(Node head, int target) {
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            if (current.data == target) {
+                if (current.prev != null) current.prev.next = current.next;
+                else head = current.next;
+                if (current.next != null) current.next.prev = current.prev;
+            }
+            current = next;
+        }
+        return head;
+    }
+}

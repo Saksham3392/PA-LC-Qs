@@ -1,0 +1,19 @@
+import java.util.*;
+
+class MovingAverage {
+    private final int windowSize;
+    private final Queue<Integer> values = new ArrayDeque<>();
+    private long sum;
+
+    public MovingAverage(int size) {
+        if (size <= 0) throw new IllegalArgumentException();
+        windowSize = size;
+    }
+
+    public double next(int val) {
+        values.offer(val);
+        sum += val;
+        if (values.size() > windowSize) sum -= values.poll();
+        return (double) sum / values.size();
+    }
+}

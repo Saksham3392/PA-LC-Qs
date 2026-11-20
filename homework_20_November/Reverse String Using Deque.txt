@@ -1,0 +1,11 @@
+import java.util.*;
+
+class Solution {
+    public String reverseString(String text) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (char ch : text.toCharArray()) deque.addFirst(ch);
+        StringBuilder result = new StringBuilder();
+        while (!deque.isEmpty()) result.append(deque.removeFirst());
+        return result.toString();
+    }
+}

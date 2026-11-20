@@ -1,0 +1,8 @@
+class Solution {
+    public int josephus(int n, int k) {
+        if (n <= 0 || k <= 0) throw new IllegalArgumentException();
+        int survivor = 0;
+        for (int size = 1; size <= n; size++) survivor = (survivor + k) % size;
+        return survivor + 1;
+    }
+}

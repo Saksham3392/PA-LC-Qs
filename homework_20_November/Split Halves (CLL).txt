@@ -1,0 +1,26 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Node[] splitHalves(Node head) {
+        if (head == null) return new Node[]{null, null};
+        if (head.next == head) return new Node[]{head, null};
+        Node slow = head;
+        Node fast = head;
+        while (fast.next != head && fast.next.next != head) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node second = slow.next;
+        if (fast.next.next == head) fast = fast.next;
+        slow.next = head;
+        fast.next = second;
+        return new Node[]{head, second};
+    }
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+
+class PriorityQueueDemo {
+    public List<Integer> minHeapOrder(int[] values) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int value : values) queue.offer(value);
+        List<Integer> result = new ArrayList<>();
+        while (!queue.isEmpty()) result.add(queue.poll());
+        return result;
+    }
+
+    public List<Integer> maxHeapOrder(int[] values) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        for (int value : values) queue.offer(value);
+        List<Integer> result = new ArrayList<>();
+        while (!queue.isEmpty()) result.add(queue.poll());
+        return result;
+    }
+}

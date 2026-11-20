@@ -1,0 +1,16 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public int countNodes(Node head) {
+        int count = 0;
+        for (Node current = head; current != null; current = current.next) count++;
+        return count;
+    }
+}

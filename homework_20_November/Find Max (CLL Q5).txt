@@ -1,0 +1,21 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public int findMax(Node head) {
+        if (head == null) throw new IllegalArgumentException();
+        int maximum = head.data;
+        Node current = head.next;
+        while (current != head) {
+            maximum = Math.max(maximum, current.data);
+            current = current.next;
+        }
+        return maximum;
+    }
+}

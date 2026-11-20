@@ -1,0 +1,37 @@
+import java.util.*;
+
+class DequeOperations {
+    private final Deque<Integer> deque = new ArrayDeque<>();
+
+    public void insertFront(int value) {
+        deque.addFirst(value);
+    }
+
+    public void insertRear(int value) {
+        deque.addLast(value);
+    }
+
+    public Integer deleteFront() {
+        return deque.pollFirst();
+    }
+
+    public Integer deleteRear() {
+        return deque.pollLast();
+    }
+
+    public Integer getFront() {
+        return deque.peekFirst();
+    }
+
+    public Integer getRear() {
+        return deque.peekLast();
+    }
+
+    public boolean isEmpty() {
+        return deque.isEmpty();
+    }
+
+    public int size() {
+        return deque.size();
+    }
+}

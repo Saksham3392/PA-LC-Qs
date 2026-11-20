@@ -1,0 +1,19 @@
+class Solution {
+    static class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Node deleteFront(Node head) {
+        if (head == null) return null;
+        Node newHead = head.next;
+        if (newHead != null) newHead.prev = null;
+        head.next = null;
+        return newHead;
+    }
+}

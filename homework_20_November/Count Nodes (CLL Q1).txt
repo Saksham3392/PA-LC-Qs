@@ -1,0 +1,21 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public int countNodes(Node head) {
+        if (head == null) return 0;
+        int count = 0;
+        Node current = head;
+        do {
+            count++;
+            current = current.next;
+        } while (current != head);
+        return count;
+    }
+}

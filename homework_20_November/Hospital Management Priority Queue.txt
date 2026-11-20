@@ -1,0 +1,41 @@
+import java.util.*;
+
+class HospitalManagement {
+    static class Patient {
+        String name;
+        int priority;
+        long arrivalOrder;
+
+        Patient(String name, int priority, long arrivalOrder) {
+            this.name = name;
+            this.priority = priority;
+            this.arrivalOrder = arrivalOrder;
+        }
+    }
+
+    private final PriorityQueue<Patient> patients = new PriorityQueue<>(
+        Comparator.comparingInt((Patient patient) -> patient.priority).reversed()
+            .thenComparingLong(patient -> patient.arrivalOrder)
+    );
+    private long nextOrder;
+
+    public void addPatient(String name, int priority) {
+        patients.offer(new Patient(name, priority, nextOrder++));
+    }
+
+    public Patient treatNextPatient() {
+        return patients.poll();
+    }
+
+    public Patient peekNextPatient() {
+        return patients.peek();
+    }
+
+    public boolean isEmpty() {
+        return patients.isEmpty();
+    }
+
+    public int size() {
+        return patients.size();
+    }
+}

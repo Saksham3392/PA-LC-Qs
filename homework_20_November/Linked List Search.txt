@@ -1,0 +1,19 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public int search(Node head, int target) {
+        int index = 0;
+        for (Node current = head; current != null; current = current.next) {
+            if (current.data == target) return index;
+            index++;
+        }
+        return -1;
+    }
+}

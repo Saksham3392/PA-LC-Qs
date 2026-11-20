@@ -1,0 +1,23 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Node insertBeginning(Node head, int value) {
+        Node node = new Node(value);
+        if (head == null) {
+            node.next = node;
+            return node;
+        }
+        Node tail = head;
+        while (tail.next != head) tail = tail.next;
+        node.next = head;
+        tail.next = node;
+        return node;
+    }
+}

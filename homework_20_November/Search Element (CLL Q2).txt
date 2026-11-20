@@ -1,0 +1,20 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public boolean search(Node head, int target) {
+        if (head == null) return false;
+        Node current = head;
+        do {
+            if (current.data == target) return true;
+            current = current.next;
+        } while (current != head);
+        return false;
+    }
+}
