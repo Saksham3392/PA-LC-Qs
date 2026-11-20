@@ -1,0 +1,47 @@
+class CircularQueue {
+    private final int[] values;
+    private int front;
+    private int rear;
+    private int size;
+
+    public CircularQueue(int capacity) {
+        if (capacity <= 0) throw new IllegalArgumentException();
+        values = new int[capacity];
+    }
+
+    public boolean enqueue(int value) {
+        if (isFull()) return false;
+        values[rear] = value;
+        rear = (rear + 1) % values.length;
+        size++;
+        return true;
+    }
+
+    public Integer dequeue() {
+        if (isEmpty()) return null;
+        int value = values[front];
+        front = (front + 1) % values.length;
+        size--;
+        return value;
+    }
+
+    public Integer front() {
+        return isEmpty() ? null : values[front];
+    }
+
+    public Integer rear() {
+        return isEmpty() ? null : values[(rear - 1 + values.length) % values.length];
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == values.length;
+    }
+
+    public int size() {
+        return size;
+    }
+}

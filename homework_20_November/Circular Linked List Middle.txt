@@ -1,0 +1,21 @@
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public Node middleNode(Node head) {
+        if (head == null) return null;
+        Node slow = head;
+        Node fast = head;
+        do {
+            slow = slow.next;
+            fast = fast.next.next;
+        } while (fast != head && fast.next != head);
+        return slow;
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public List<Integer> reversePrint(Node head) {
+        List<Integer> result = new ArrayList<>();
+        if (head == null) return result;
+        Node current = head;
+        do {
+            result.add(current.data);
+            current = current.next;
+        } while (current != head);
+        Collections.reverse(result);
+        return result;
+    }
+}
